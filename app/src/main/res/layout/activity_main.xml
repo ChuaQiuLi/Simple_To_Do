@@ -3,8 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="8dp"
     android:orientation="vertical">
 
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20sp"
+        android:text="@string/tasks_that_needs_to_be_done"
+        android:textColor="#000000"
+        android:textSize="25sp" />
 
     <Spinner
         android:id="@+id/spinner"
@@ -29,6 +39,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#2196F3"
             android:text="@string/add" />
 
         <Button
@@ -36,6 +47,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#D51515"
             android:text="@string/delete" />
 
         <Button
@@ -43,12 +55,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="#B10101"
             android:text="@string/clear" />
     </LinearLayout>
 
     <ListView
         android:id="@+id/listViewTask"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="#7BC7EA" />
 </LinearLayout>
 
