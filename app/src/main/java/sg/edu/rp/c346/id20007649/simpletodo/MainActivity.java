@@ -52,8 +52,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
-
                 String tasks = "";
 
                 if (etTask != null ) {
@@ -75,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
                 task.notifyDataSetChanged();
 
 
-
             }
         });
 
@@ -87,14 +84,14 @@ public class MainActivity extends AppCompatActivity {
                     case 0 :
                         etTask.setHint("Type in a new task here");
                         btnDelete.setEnabled(false);
-
+                        btnAdd.setEnabled(true);
                         break;
 
 
                     case 1 :
                         etTask.setHint("Type in the index of the task to be removed");
                         btnAdd.setEnabled(false);
-
+                        btnDelete.setEnabled(true);
                         break;
 
                 }
@@ -111,29 +108,35 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                int position = Integer.parseInt(etTask.getText().toString());
-
-                if (position != listedTask.size()) {
-                    Toast.makeText(MainActivity.this,"Wrong index number", Toast.LENGTH_LONG).show();
-
-                }
-
-                else if (position == listedTask.size()) {
-                    listedTask.remove(position);
-                }
-
-                else{
+                if (listedTask.isEmpty() == true) {
                     Toast.makeText(MainActivity.this,"You don't have any task to remove", Toast.LENGTH_LONG).show();
 
                 }
 
-            }
+                else {
+                    int position = Integer.parseInt(etTask.getText().toString());
+
+                    if (position >= listedTask.size()) {
+                        Toast.makeText(MainActivity.this,"Wrong index number", Toast.LENGTH_LONG).show();
+
+                    }
+
+                    else {
+                        listedTask.remove(position);
+                        task.notifyDataSetChanged();
+                        etTask.setText(null);
+                        Toast.makeText(MainActivity.this,"Deleted Successfully", Toast.LENGTH_LONG).show();
+
+
+                    }
+
+
+                }
+
+    }
+
+
         });
-
-
-
-
-
 
 
 
